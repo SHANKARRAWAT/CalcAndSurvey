@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateForm() {
+            var firstName = document.forms["surveyForm"]["firstName"].value;
+            var lastName = document.forms["surveyForm"]["lastName"].value;
+            var dob = document.forms["surveyForm"]["dob"].value;
+            var country = document.forms["surveyForm"]["country"].value;
+            var gender = document.forms["surveyForm"]["gender"].value;
+            var profession = document.forms["surveyForm"]["profession"].value;
+            var email = document.forms["surveyForm"]["email"].value;
+            var mobile = document.forms["surveyForm"]["mobile"].value;
+           console.log(firstName+lastName+dob+country+gender+profession+email+mobile)
+            if (firstName ==="" || lastName === "" ||  email === "" || mobile === "") {
+                alert("Please fill in all the required fields.");
+                return false;
+            }
+
+            // You can add more specific validation for fields like email and mobile number here if needed.
+
+            return true;
+        }
+
+        function submitForm() {
+            if (validateForm()) {
+                var firstName = document.forms["surveyForm"]["firstName"].value;
+                var lastName = document.forms["surveyForm"]["lastName"].value;
+                var dob = document.forms["surveyForm"]["dob"].value;
+                var country = document.forms["surveyForm"]["country"].value;
+      
+
+  var lang1= document.getElementById("other");
+  var lang2= document.getElementById("male");
+  var lang3= document.getElementById("female");
+  var result= " ";
+  if (lang1!=null&&lang1.checked == true){
+    var lg1= document.getElementById("other").value;
+    result= lg1 + " ";
+  }
+  else if (lang2!=null&&lang2.checked == true){
+    var lg2= document.getElementById("male").value;
+    result= result + lg2 + " ";
+  }
+  else if (lang3!=null&&lang3.checked == true){
+  document.write(result);
+    var lg3= document.getElementById("female").value;
+    result= result + lg3 ;
+  }else {
+  return document.getElementById("male").innerHTML= "Select any one";
+  }
+
+
+                var gender=result
+               // var gender = document.forms["surveyForm"]["gender"].value;
+                var profession = document.forms["surveyForm"]["profession"].value;
+                var email = document.forms["surveyForm"]["email"].value;
+                var mobile = document.forms["surveyForm"]["mobile"].value;
+
+                var popupText = "First Name: " + firstName + "\n" +
+                                "Last Name: " + lastName + "\n" +
+                                "Date of Birth: " + dob + "\n" +
+                                "Country: " + country + "\n" +
+                                 "Gender: " + gender + "\n" +
+                                "Profession: " + profession + "\n" +
+                                "Email: " + email + "\n" +
+                                "Mobile: " + mobile;
+
+                alert("Survey Form Submitted:\n\n" + popupText);
+
+                document.getElementById("surveyForm").reset();
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="surveyForm" name="surveyForm" onsubmit="return false;">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option value="Select">Select</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <!-- Add more countries as needed -->
+        </select><br><br>
+
+        <label>Gender:</label><br>
+   
+        <input type="checkbox" name="gender" id="male" value="Male"> Male<br>
+        <input type="checkbox" name="gender" id="Female" value="Female"> Female<br>
+        <input type="checkbox" name="gender" id="Other" value="Other"> Other<br><br>
+
+        <label for="profession">Profession:</label>
+        <input type="text" id="profession" name="profession" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" required><br><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+/* div {
+    box-sizing: border-box;
+    width: 100%;
+    border: 100px solid black;
+    float: left;
+    align-content: center;
+    align-items: center;
+} */
+ *{
+    margin: 0;
+    padding: 0;
+ }
+
+body {
+    background: blue;
+}
+form {
+    background: white;
+    margin: 0px 25%;
+    padding: 22px;
+    border: 2px solid black;
+}
+p{
+    padding: 2%;
+}
+p input{
+    width: 100%;
+}
